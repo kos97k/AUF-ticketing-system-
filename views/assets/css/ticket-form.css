@@ -1,0 +1,129 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Use a modern font */
+  }
+  
+  .navbar {
+    background-color: #004d99;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-link {
+    color: #ffffff;
+    padding: 10px 15px;
+  }
+  
+  .navbar .nav-link:hover {
+    background-color: #005bb5;
+    border-radius: 5px;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0; /* Slight border for modern look */
+  }
+  
+  h2 {
+    color: #004d99;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the title */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: 600;
+    color: #004d99;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+    padding: 10px 15px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .form-control:focus {
+    border-color: #004d99;
+    box-shadow: 0 0 6px rgba(0, 77, 153, 0.3);
+    outline: none;
+  }
+  
+  button.btn-primary {
+    background-color: #004d99;
+    border-color: #004d99;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #003366;
+    border-color: #003366;
+  }
+  
+  button.btn-primary:active {
+    background-color: #002244;
+    border-color: #002244;
+  }
+  
+  footer {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #004d99;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .form-control {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+    }
+  
+    button.btn-primary {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Helpdesk Edit Team">
+  <meta name="author" content="">
+
+  <title>Helpdesk - Edit Team</title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/views/assets/css/dashboard.css" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet">
+  <link href="/views/assets/css/style.css" rel="stylesheet">
+  <link href="/views/assets/css/navbar.css" rel="stylesheet">
+  <link href="/views/assets/css/sidebar.css" rel="stylesheet">
+
+  <!-- jQuery and Bootstrap Bundle (JavaScript) -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper" class="d-flex flex-column min-vh-100">
+    <!-- Navigation Partial -->
+    {{> navbar}}
+
+    <!-- Sidebar Partial -->
+    {{> sidebar}}
+
+    <!-- Content Wrapper -->
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 56px); margin-top: -56px;">
+      <div class="w-100" style="max-width: 800px;">
+        <h1 class="text-center">Set Ticket Information</h1>
+
+        {{#err}}
+        <p class="text-danger text-center">{{err}}</p>
+        {{/err}}
+
+        {{#msg}}
+        <p class="text-success text-center">{{msg}}</p>
+        {{/msg}}
+
+        <!-- Conditional Form Rendering -->
+        <!-- Check if the logged-in user is a member -->
+        {{#user.isMember}}
+        <!-- Only show status dropdown for members -->
+        <form method="POST" action="/set-ticket/{{ticket.id}}">
+          <!-- Status Selection -->
+          <div class="form-group row">
+            <label for="status" class="col-sm-3 col-form-label">Change Ticket Status</label>
+            <div class="col-sm-8">
+              <select class="form-control" name="status" id="status">
+                <option value="open" {{#ticket.status_open}}selected{{/ticket.status_open}}>Open</option>
+                <option value="pending" {{#ticket.status_pending}}selected{{/ticket.status_pending}}>Pending</option>
+                <option value="solved" {{#ticket.status_solved}}selected{{/ticket.status_solved}}>Solved</option>
+                <option value="closed" {{#ticket.status_closed}}selected{{/ticket.status_closed}}>Closed</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Update Status</button>
+          </div>
+        </form>
+        {{/user.isMember}}
+
+        {{^user.isMember}}
+        <!-- Show full form for non-members (Admins) -->
+        <form method="POST" action="/set-ticket/{{ticket.id}}">
+          <!-- Team Selection -->
+          <div class="form-group row">
+            <label for="team" class="col-sm-3 col-form-label">Team</label>
+            <div class="col-sm-8">
+              <select class="form-control" name="team" id="team-dropdown" onchange="getTeamMembers(this.value)">
+                <option value="">--select--</option>
+                {{#teams}}
+                <option value="{{id}}" {{#isSelected}}selected{{/isSelected}}>{{name}}</option>
+                {{/teams}}
+              </select>
+            </div>
+          </div>
+
+          <!-- Team Member Selection -->
+          <div class="form-group row">
+            <label for="team_member" class="col-sm-3 col-form-label">Assigned</label>
+            <div class="col-sm-8">
+              <select class="form-control" name="team_member" id="team-member-dropdown">
+                <option value="">--select--</option>
+                {{#teamMembers}}
+                <option value="{{id}}" {{#isAssigned}}selected{{/isAssigned}}>{{name}}</option>
+                {{/teamMembers}}
+              </select>
+            </div>
+          </div>
+
+          <!-- Status Selection -->
+          <div class="form-group row">
+            <label for="status" class="col-sm-3 col-form-label">Change Ticket Status</label>
+            <div class="col-sm-8">
+              <select class="form-control" name="status" id="status">
+                <option value="open" {{#ticket.status_open}}selected{{/ticket.status_open}}>Open</option>
+                <option value="pending" {{#ticket.status_pending}}selected{{/ticket.status_pending}}>Pending</option>
+                <option value="solved" {{#ticket.status_solved}}selected{{/ticket.status_solved}}>Solved</option>
+                <option value="closed" {{#ticket.status_closed}}selected{{/ticket.status_closed}}>Closed</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Update Ticket</button>
+          </div>
+        </form>
+        {{/user.isMember}}
+
+        <script>
+          function getTeamMembers(teamId) {
+            if (!teamId) {
+              document.getElementById("team-member-dropdown").innerHTML = '<option>--select--</option>';
+              return;
+            }
+            fetch(`/fetch-team-members/${teamId}`)
+              .then(response => response.json())
+              .then(data => {
+                const dropdown = document.getElementById("team-member-dropdown");
+                dropdown.innerHTML = '<option>--select--</option>';
+                data.forEach(member => {
+                  dropdown.innerHTML += `<option value="${member.id}">${member.name}</option>`;
+                });
+              });
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional scripts -->
+  <script src="views/assets/js/custom.js"></script>
+
+</body>
+</html>

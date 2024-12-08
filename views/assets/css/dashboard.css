@@ -1,0 +1,282 @@
+body {
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #004d99;
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+}
+
+.navbar .nav-link:hover {
+  background-color: #005bb5;
+  border-radius: 5px;
+}
+
+.navbar .dropdown-menu {
+  background-color: #004d99;
+  border: none;
+}
+
+.navbar .dropdown-item {
+  color: #ffffff;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #005bb5;
+  color: #ffffff;
+}
+
+.sidebar {
+  width: 220px;
+  padding-top: 60px; /* Adjust this value to move it down more or less */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+.sidebar .nav-item {
+  padding: 2px 0;
+}
+
+#content-wrapper {
+  margin-left: 220px; /* Match the sidebar width */
+  padding: 1px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container-fluid {
+  padding: 5px; /* Reduce the padding */
+  margin: 0; /* Remove any margin */
+}
+
+.table {
+  margin-left: 0; /* Remove any left margin */
+  margin-right: auto; /* Ensure it aligns left */
+  width: 5%; /* Reduce the width slightly */
+}
+
+.table th,
+.table td {
+  padding: 5px 8px; /* Reduce padding */
+  font-size: 0.9rem; /* Adjust font size for compactness */
+  text-align: center; /* Keep text centered */
+}
+
+.table {
+  margin-left: 0; /* Align the table to the left */
+  margin-right: auto; /* Remove any right margin */
+  width: auto; /* Adjust width to fit content */
+}
+
+.table-responsive {
+  padding: 0; /* Remove any padding around the table */
+  margin: 0; /* Remove any margin */
+}
+
+.container-fluid {
+  padding: 0 10px; /* Reduce padding for a tighter fit */
+}
+
+#content-wrapper {
+  margin-left: 220px; /* Match sidebar width */
+  padding: 15px; /* Ensure there is some padding for spacing */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.dashboard-button {
+  color: #004d99;
+  font-weight: bold;
+  padding: 10px;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.dashboard-button:hover {
+  color: #003366;
+}
+
+.dashboard-button.open {
+  color: #004d99;
+}
+
+.dashboard-button.solved {
+  color: #004d99;
+}
+
+.dashboard-button.closed {
+  color: #004d99;
+}
+
+.dashboard-button.pending {
+  color: #004d99;
+}
+
+.dashboard-button.unassigned {
+  color: #004d99;
+}
+
+.dashboard-button.my-tickets {
+  color: #004d99;
+}
+
+.card {
+  margin: 0; /* Remove any default margins */
+  padding: 10px; /* Reduce padding inside the card */
+  box-shadow: none; /* Remove shadow if not needed */
+}
+
+.card-body {
+  padding: 10px; /* Reduce padding to make it more compact */
+}
+
+.btn-primary {
+  background-color: #004d99;
+  border-color: #004d99;
+  color: #004d99;
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.breadcrumb {
+  padding: 5px; /* Reduce padding for breadcrumb */
+  margin-bottom: 5px; /* Minimize the space below the breadcrumb */
+}
+
+.btn-primary:hover {
+  background-color: #003366;
+  border-color: #003366;
+}
+
+.btn-group .btn-outline-primary {
+  border-color: #004d99;
+}
+
+.btn-group .btn-outline-primary:hover {
+  background-color: #004d99;
+  color: #004d99;
+}
+
+footer {
+  background-color: #003366;
+  color: #003366;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .copyright {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #content-wrapper {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+    padding-top: 15px;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .table th,
+  .table td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 8px; /* Adjust for more compact view */
+    font-size: 0.9rem; /* Smaller font for more content */
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .sidebar .nav-link {
+    color: #004d99; /* Set default color to blue */
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+}
+
+@media (max-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .nav-item.dropdown {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    display: none;
+    z-index: 1040;
+  }
+
+  .sidebar.show {
+    display: block;
+  }
+
+  #content-wrapper {
+    margin-top: 56px;
+    margin-left: 0;
+  }
+
+  .container {
+    width: auto; /* Ensure it's not constrained */
+    max-width: none; /* Remove any max-width constraints */
+  }
+}

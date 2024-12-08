@@ -1,0 +1,27 @@
+.navbar {
+  background-color: #1f588d !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-brand:hover {
+  color: #74b3f3 !important   ;
+}
+
+.navbar .nav-link:hover {
+  background-color: #4284c7 !important;
+  color: #ffffff;
+}
+
+.navbar .dropdown-item {
+  background-color: #1f588d !important;
+  color: white !important;
+}
+
+.navbar .dropdown-item:hover{
+  color: #74b3f3 !important;
+
+}

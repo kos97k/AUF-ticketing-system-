@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Helpdesk Edit Team">
+  <meta name="author" content="">
+
+  <title>Helpdesk - Edit Team</title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/views/assets/css/dashboard.css" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet">
+  <link href="/views/assets/css/style.css" rel="stylesheet">
+  <link href="/views/assets/css/navbar.css" rel="stylesheet">
+  <link href="/views/assets/css/sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="wrapper" class="d-flex flex-column min-vh-100">
+    <!-- Navigation Partial -->
+    {{> navbar}}
+
+    <!-- Sidebar Partial -->
+    {{> sidebar}}
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <ol class="breadcrumb" style="margin-left: 0; padding-left: 15px; max-width: 88%;">
+          <li class="breadcrumb-item">
+            <a href="/team">Teams</a>
+          </li>
+          <li class="breadcrumb-item active">Edit Team</li>
+        </ol>
+
+            <!-- Content Wrapper -->
+        <div class="card mb-3 flex-grow-1" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-left: -1px; max-width: 88%; margin-top: -0px;">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4">Edit Team</h3>
+            <form method="POST" action="/update-team/{{id}}">
+    <div class="form-group">
+        <label for="name">Team Name:</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{name}}" required>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save Changes</button>
+        <button type="button" class="btn btn-danger" onclick="window.history.back();"><i class="fa fa-times"></i> Cancel</button>
+    </div>
+</form>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="text-center my-auto">
+            <span> AUF Helpdesk System © 2024. All Rights Reserved</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- /.content-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

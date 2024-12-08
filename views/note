@@ -1,0 +1,10 @@
+
+
+Team
+ - new team()
+Action ()
+ - add member(Add TicketMemberController)
+Users
+ - create user()
+Ticket
+ - view ticket detailes()

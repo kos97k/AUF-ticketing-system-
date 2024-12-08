@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #f1eee9;
+  --secondary-color: #f54725;
+  --tertiary-color: #f9d678;
+  --text-dark: #13313c;
+  --text-light: #475569;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Rubik", sans-serif;
+}
+
+.sidebar .nav-link {
+  color: var(--white);
+  padding: 10px 15px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar .nav-link.custom-hover:hover {
+  color: #74b3f3 !important;
+  background-color: transparent;
+}
+
+/* Active state when the link is clicked */
+.sidebar .nav-link.custom-hover.active {
+  color: #74b3f3 !important;  
+  background-color: transparent;
+}
+
+/* Bery fast but will show when u are holding it */
+.sidebar .nav-link.custom-hover:active {
+  color: #001e3b !important;
+}

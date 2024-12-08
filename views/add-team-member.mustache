@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Helpdesk Edit Team">
+  <meta name="author" content="">
+
+  <title>Helpdesk - Edit Team</title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/views/assets/css/dashboard.css" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet">
+  <link href="/views/assets/css/style.css" rel="stylesheet">
+  <link href="/views/assets/css/navbar.css" rel="stylesheet">
+  <link href="/views/assets/css/sidebar.css" rel="stylesheet">
+
+  <!-- jQuery and Bootstrap Bundle (JavaScript) -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper" class="d-flex flex-column min-vh-100">
+    <!-- Navigation Partial -->
+    {{> navbar}}
+
+    <!-- Sidebar Partial -->
+    {{> sidebar}}
+
+    <!-- Content Wrapper -->
+    <div class="d-flex justify-content-center align-items-center flex-grow-1">
+      <div class="w-100" style="max-width: 600px; margin-left: 150px; margin-top: -150px;"> <!-- Adjust margin-top to move up -->
+        <h1 class="text-center">Add Team Member</h1>
+        
+        <!-- Error and Success Messages -->
+        {{#err}} <p class="text-danger text-center">{{err}}</p> {{/err}}
+        {{#msg}} <p class="text-success text-center">{{msg}}</p> {{/msg}}
+  
+        <!-- Form Start -->
+        <form method="POST" action="/assign-team-member" class="mt-4">
+          <div class="form-group">
+              <label for="team-member">Select User:</label>
+              <select class="form-control" name="team-member" id="team-member" required>
+                  <option value="">--Select--</option>
+                  {{#allusers}}
+                  <option value="{{id}}">{{name}}</option>
+                  {{/allusers}}
+              </select>
+          </div>
+          <input type="hidden" name="teamId" value="{{teamId}}">
+          <button type="submit" class="btn btn-primary btn-block">Assign Member</button>
+          <button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button>
+      </form>
+      </div>
+    </div>  
+  </div>
+</body>
+
+</html>

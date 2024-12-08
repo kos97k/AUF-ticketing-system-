@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Helpdesk Edit Team">
+  <meta name="author" content="">
+
+  <title>Helpdesk - Edit Team</title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/views/assets/css/dashboard.css" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet">
+  <link href="/views/assets/css/style.css" rel="stylesheet">
+  <link href="/views/assets/css/navbar.css" rel="stylesheet">
+  <link href="/views/assets/css/sidebar.css" rel="stylesheet">
+
+  <!-- jQuery and Bootstrap Bundle (JavaScript) -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper" class="d-flex flex-column min-vh-100">
+    <!-- Navigation Partial -->
+    {{> navbar}}
+
+    <!-- Sidebar Partial -->
+    {{> sidebar}}
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="./users">Users</a>
+          </li>
+          <li class="breadcrumb-item active">View User</li>
+        </ol>
+
+        <div class="card mb-3 flex-grow-1" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-left: 20px; max-width: 85%; margin-top: -0px;">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4">User Details</h3>
+            <div class="table-container" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; margin-left: -10px; max-width: 115%; margin-top: -20px">
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm" style="width: 100%;" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <th>Name</th>
+                      <td>{{name}}</td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{{email}}</td>
+                    </tr>
+                    <tr>
+                      <th>Phone</th>
+                      <td>{{phone}}</td>
+                    </tr>
+                    <tr>
+                      <th>Role</th>
+                      <td>{{role}}</td>
+                    </tr>
+                    <tr>
+                      <th>Teams</th>
+                      <td>
+                        {{#teams}}
+                        <div>{{name}}</div>
+                        {{/teams}}
+                        {{^teams}}
+                        <div>No teams assigned</div>
+                        {{/teams}}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="text-center">
+              <a href="/users" class="btn btn-secondary" style="background-color: #4080b0; border-color: #4080b0;">
+                <i class="fa fa-arrow-left"></i> Back to Users
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="text-center my-auto">
+            <span> AUF Helpdesk System © 2024. All Rights Reserved</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Core JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="js/sb-admin.min.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
+</body>
+
+</html>
